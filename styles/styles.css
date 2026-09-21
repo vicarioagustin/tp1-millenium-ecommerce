@@ -1,40 +1,357 @@
-*{
+/* ==========================================================================
+   1. VARIABLES GLOBALES Y RESET
+   ========================================================================== */
+:root {
+    --color-principal: #2c3e50;    /* Azul oscuro para navbar y títulos */
+    --color-secundario: #3498db;   /* Azul brillante para botones y hover */
+    --color-acento: #27ae60;       /* Verde para precios */
+    --color-fondo: #f4f6f7;        /* Gris claro de fondo */
+    --color-blanco: #ffffff;
+    --color-texto: #333333;
+    --fuente-principal: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f4f7;
-    color: #333;
-    margin: 20px;
-    padding: 0;
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-h1 {
-    color: #2c3e50;
-    border-bottom: 3px solid #3498db;
-    padding-bottom: 10px;
+/* ==========================================================================
+   2. HEADER Y NAVBAR
+   ========================================================================== */
+header {
+    background-color: var(--color-principal);
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    color: #2980b9;
-    margin-top: 30px;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 nav a {
+    color: var(--color-blanco);
     text-decoration: none;
-    color: #2c3e50;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--color-secundario);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
 }
 
 .logo-img {
     width: 40px;
-    vertical-align: middle;
+    height: auto;
 }
 
 .logo-texto {
     font-size: 1.5rem;
     font-weight: bold;
-    vertical-align: middle;
+    color: var(--color-blanco);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-blanco);
+}
+
+.btn-logout {
+    background-color: transparent;
+    border: 1px solid var(--color-blanco);
+    color: var(--color-blanco);
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+}
+
+/* ==========================================================================
+   3. ESTRUCTURA GENERAL (MAIN Y FOOTER)
+   ========================================================================== */
+main {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    color: var(--color-principal);
+    border-bottom: 3px solid var(--color-secundario);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   4. FORMULARIOS (LOGIN Y REGISTRO)
+   ========================================================================== */
+.form-container {
+    background-color: var(--color-blanco);
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--color-principal);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    border-color: var(--color-secundario);
+    outline: none;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #2980b9;
+}
+
+.form-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.form-link a {
+    color: var(--color-secundario);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   5. LAYOUT DE PRODUCTOS Y CARDS (HOME Y CATEGORÍAS)
+   ========================================================================== */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.card-producto {
+    background-color: var(--color-blanco);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-producto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-producto img {
+    max-width: 100%;
+    height: 160px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.card-titulo {
+    font-size: 1.1rem;
+    color: var(--color-principal);
+    margin-bottom: 8px;
+}
+
+.card-precio {
+    color: var(--color-acento);
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.btn-agregar {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-agregar:hover {
+    background-color: var(--color-secundario);
+}
+
+.btn-logout {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 5px;
+}
+
+.btn-logout:hover {
+    background-color: #e74c3c; /* Rojo suave para indicar salida/cierre */
+    border-color: #e74c3c;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   SECCIÓN Y TARJETA DE UBICACIÓN (GOOGLE MAPS)
+   ========================================================================== */
+.ubicacion-section {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.card-mapa {
+    display: block;
+    max-width: 600px;
+    margin: 20px auto 0 auto;
+    background-color: var(--color-blanco);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover sobre la tarjeta completa */
+.card-mapa:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.mapa-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+
+.mapa-container iframe {
+    pointer-events: none; /* Desactiva el zoom interno para permitir el clic directo */
+    width: 100%;
+    height: 100%;
+}
+
+/* Capa que aparece al pasar el mouse */
+.mapa-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 62, 80, 0.4); /* Oscurece ligeramente con azul institucional */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mapa-overlay span {
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+/* Muestra el mensaje al pasar el cursor */
+.card-mapa:hover .mapa-overlay {
+    opacity: 1;
+}
+
+.card-mapa-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-mapa-info h3 {
+    color: var(--color-principal);
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.card-mapa-info p {
+    color: #666;
+    font-size: 0.9rem;
 }
