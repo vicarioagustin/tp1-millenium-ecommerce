@@ -2,10 +2,10 @@
    1. VARIABLES GLOBALES Y RESET
    ========================================================================== */
 :root {
-    --color-principal: #2c3e50;    /* Azul oscuro para navbar y títulos */
-    --color-secundario: #3498db;   /* Azul brillante para botones y hover */
-    --color-acento: #27ae60;       /* Verde para precios */
-    --color-fondo: #f4f6f7;        /* Gris claro de fondo */
+    --color-principal: #2c3e50;    
+    --color-secundario: #3498db;  
+    --color-acento: #27ae60;       
+    --color-fondo: #f4f6f7;       
     --color-blanco: #ffffff;
     --color-texto: #333333;
     --fuente-principal: Arial, Helvetica, sans-serif;
@@ -119,12 +119,91 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* ==========================================================================
+   FOOTER COMPACTO EN COLUMNAS CON NAVEGACIÓN EN RECUADROS
+   ========================================================================== */
 footer {
     background-color: var(--color-principal);
     color: var(--color-blanco);
-    text-align: center;
-    padding: 15px 0;
+    padding-top: 30px;
     margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 25px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 25px;
+    text-align: left; 
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-col h3, 
+.footer-col h4 {
+    color: var(--color-blanco);
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    border-bottom: 2px solid var(--color-secundario);
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+.footer-col p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #dcdde1;
+    margin-bottom: 8px;
+}
+
+/* Formato general de listas en el footer */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; 
+}
+
+/* RECUADROS HIGHLIGHT PARA NAVEGACIÓN Y REDES */
+.nav-recuadros li a,
+.redes-sociales li a {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.12); 
+    border: 1px solid rgba(255, 255, 255, 0.25);  
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;                           
+    transition: all 0.3s ease;
+}
+
+/* Efecto Hover al pasar el cursor */
+.nav-recuadros li a:hover,
+.redes-sociales li a:hover {
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Barra inferior de Copyright */
+.footer-bottom {
+    background-color: #1a252f;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 0.82rem;
+    color: #bdc3c7;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* ==========================================================================
@@ -267,7 +346,7 @@ footer {
 }
 
 .btn-logout:hover {
-    background-color: #e74c3c; /* Rojo suave para indicar salida/cierre */
+    background-color: #e74c3c; 
     border-color: #e74c3c;
     color: #ffffff;
 }
@@ -282,7 +361,7 @@ footer {
 
 .card-mapa {
     display: block;
-    max-width: 600px;
+    max-width: 480px;
     margin: 20px auto 0 auto;
     background-color: var(--color-blanco);
     border: 1px solid #e0e0e0;
@@ -290,10 +369,8 @@ footer {
     overflow: hidden;
     text-decoration: none;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    transition: transform 0.3s ease, box-shadow 0.3s ease;}
 
-/* Efecto hover sobre la tarjeta completa */
 .card-mapa:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
@@ -302,23 +379,22 @@ footer {
 .mapa-container {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: 180px;
 }
 
 .mapa-container iframe {
-    pointer-events: none; /* Desactiva el zoom interno para permitir el clic directo */
+    pointer-events: none; 
     width: 100%;
     height: 100%;
 }
 
-/* Capa que aparece al pasar el mouse */
 .mapa-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(44, 62, 80, 0.4); /* Oscurece ligeramente con azul institucional */
+    background-color: rgba(44, 62, 80, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -335,7 +411,6 @@ footer {
     font-size: 0.95rem;
 }
 
-/* Muestra el mensaje al pasar el cursor */
 .card-mapa:hover .mapa-overlay {
     opacity: 1;
 }
@@ -354,4 +429,80 @@ footer {
 .card-mapa-info p {
     color: #666;
     font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   SELECTOR DE CANTIDAD EN CARDS DE PRODUCTO
+   ========================================================================== */
+.card-descripcion {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.cantidad-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    background-color: var(--color-fondo);
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.btn-cantidad {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-cantidad:hover {
+    background-color: var(--color-secundario);
+}
+
+.cantidad-num {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--color-principal);
+    min-width: 20px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   NOTIFICACIÓN TOAST PERSONALIZADA (REEMPLAZO DE ALERT)
+   ========================================================================== */
+#toast-notificacion {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--color-principal); /* Azul institucional #2c3e50 */
+    color: var(--color-blanco);
+    padding: 14px 22px;
+    border-radius: 8px;
+    border-left: 5px solid var(--color-acento); /* Detalle verde #27ae60 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    font-weight: 500;
+    z-index: 1000;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.toast-oculto {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+.toast-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }

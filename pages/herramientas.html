@@ -8,72 +8,67 @@
 </head>
 <body>
 
-    <header>
-        <nav>
-            <a href="../index.html"> 
-                <img src="../img/logo.png" alt="Logo Millenium" class="logo-img">
-                <span class="logo-texto">Millenium</span>
-            </a> 
-
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="./celulares.html">Celulares</a></li>
-                <li><a href="./tv-audio.html">TV y Audio</a></li>
-                <li><a href="./electrodomesticos.html">Electrodomésticos</a></li>
-                <li><a href="./herramientas.html">Herramientas</a></li>
-            </ul>
-            <div>
-                <a href="./login.html">Iniciar Sesión</a> | 
-                <a href="./registro.html">Registrarse</a> | 
-                <button type="button" onclick="alert('Sesión cerrada con éxito')">Logout</button>
-            </div>
-        </nav>
-    </header>
+    <!-- El navbar dinámico se inyecta automáticamente desde js/navbar.js -->
+    <header></header>
 
     <main>
         <h1>Herramientas</h1>
         <p>Encuentra las mejores herramientas para tu hogar y taller en Millenium.</p>
 
-        <section class="productos-grid">
-            
-            <!-- Card 1 -->
-            <article class="card-producto">
-                <img src="../img/productos/kit-amoladora-taladro-percutor-dwen-pagio.webp" alt="Kit Amoladora y Taladro Percutor Dewen Pagio">
-                <h3 class="card-titulo">Kit Amoladora y Taladro Percutor Dewen Pagio</h3>
-                <p class="card-precio">$330.000</p>
-                <button type="button" class="btn-agregar">Añadir al carrito</button>
-            </article>
-
-            <!-- Card 2 -->
-            <article class="card-producto">
-                <img src="../img/productos/amoladora-b&d.webp" alt="Amoladora Angular Black & Decker 820W">
-                <h3 class="card-titulo">Amoladora Angular Black & Decker 820W</h3>
-                <p class="card-precio">$72.000</p>
-                <button type="button" class="btn-agregar">Añadir al carrito</button>
-            </article>
-
-            <!-- Card 3 -->
-            <article class="card-producto">
-                <img src="../img/productos/kit-amoladora-taladro-percutor-dwen-pagio.webp" alt="Set 166 Piezas Caja de Herramientas: Taladro Percutor y Atornillador + Accesorios">
-                <h3 class="card-titulo">Set 166 Piezas Caja de Herramientas: Taladro Percutor y Atornillador + Accesorios</h3>
-                <p class="card-precio">$240.000</p>
-                <button type="button" class="btn-agregar">Añadir al carrito</button>
-            </article>
-
-            <!-- Card 4 -->
-            <article class="card-producto">
-                <img src="../img/productos/hidrolavadora-electrica-ap-trent.webp" alt="Hidrolavadora Electrica Alta Presion 1600 Psi">
-                <h3 class="card-titulo">Hidrolavadora Electrica Alta Presion 1600 Psi</h3>
-                <p class="card-precio">$100.000</p>
-                <button type="button" class="btn-agregar">Añadir al carrito</button>
-            </article>
-
-        </section>
+        <!-- Las tarjetas dinámicas con contador se inyectan desde js/productos.js -->
+        <section class="productos-grid"></section>
     </main>
 
+    <!-- Footer enriquecido y estructurado -->
     <footer>
-        <p>&copy; 2026 Millenium - Categoría Herramientas</p>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>¿Quiénes Somos?</h3>
+                <p><strong>Millenium</strong> es una empresa familiar dedicada a equipar tu hogar con lo último en tecnología, electrodomésticos y herramientas. Nos caracteriza el trato cercano y el compromiso con cada familia de la región.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul class="nav-recuadros">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="./celulares.html">Celulares</a></li>
+                    <li><a href="./tv-audio.html">TV y Audio</a></li>
+                    <li><a href="./electrodomesticos.html">Electrodomésticos</a></li>
+                    <li><a href="./herramientas.html">Herramientas</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contacto y Sucursal</h4>
+                <p>📍 Corrientes 306, X5854 Almafuerte, Córdoba</p>
+                <p>📧 contacto@millenium.com</p>
+                <p>📞 +54 3571 123456</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Seguinos</h4>
+                <p>Sumate a nuestras redes para enterarte de todas las ofertas:</p>
+                <ul class="redes-sociales">
+                    <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+                    <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="https://whatsapp.com" target="_blank" rel="noopener">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Millenium Electrodomésticos - Empresa Familiar. Todos los derechos reservados.</p>
+        </div>
+        <div id="toast-notificacion" class="toast-oculto">
+            <p id="toast-mensaje"></p>
+        </div>
+
     </footer>
+
+    <!-- Scripts en la carpeta relativa ../js/ -->
+    <script src="../js/auth.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/productos.js"></script>
 
 </body>
 </html>

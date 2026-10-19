@@ -8,73 +8,64 @@
 </head>
 <body>
 
-    <header>
-        <nav>
-            <a href="../index.html"> 
-                <img src="../img/logo.png" alt="Logo Millenium" class="logo-img">
-                <span class="logo-texto">Millenium</span>
-            </a>
-
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="./celulares.html">Celulares</a></li>
-                <li><a href="./tv-audio.html">TV y Audio</a></li>
-                <li><a href="./electrodomesticos.html">Electrodomésticos</a></li>
-                <li><a href="./herramientas.html">Herramientas</a></li>
-            </ul>
-            <div>
-                <a href="./login.html">Iniciar Sesión</a> | 
-                <a href="./registro.html">Registrarse</a> | 
-                <button type="button" onclick="alert('Sesión cerrada con éxito')">Logout</button>
-            </div>
-        </nav>
-    </header>
+    <!-- El componente dinámico js/navbar.js inyecta el menú completo aquí -->
+    <header></header>
 
     <main>
         <h1>Celulares</h1>
         <p>Encuentra los últimos modelos de smartphones y accesorios en Millenium.</p>
 
-        <section class="productos-grid">
-
-            <!-- Card 1 -->
-            <article class="card-producto">
-                <img src="../img/productos/redmi-note-15-pro.webp" alt="Xiaomi Redmi Note 15 Pro">
-                <h3 class="card-titulo">Xiaomi Redmi Note 15 Pro</h3>
-                <p class="card-precio">$600.000</p>
-                <button type="button" class="btn-agregar">Añadir al carrito</button>
-            </article>
-
-            <!-- Card 2 -->
-            <article class="card-producto">
-                <img src="../img/productos/samsung-galaxy-a57-5g.webp" alt="Samsung Galaxy A57 5G">
-                <h3 class="card-titulo">Samsung Galaxy A57 5G</h3>
-                <p class="card-precio">$1.200.000</p>
-                <button type="button" class="btn-agregar">Añadir al carrito</button>
-            </article>
-
-            <!-- Card 3 -->
-            <article class="card-producto">
-                <img src="../img/productos/apple-16-128.webp" alt="Apple iPhone 16 (128 GB)">
-                <h3 class="card-titulo">Apple iPhone 16 (128 GB)</h3>
-                <p class="card-precio">$2.400.000</p>
-                <button type="button" class="btn-agregar">Añadir al carrito</button>
-            </article>
-
-              <!-- Card 4 -->
-            <article class="card-producto">
-                <img src="../img/productos/moto-g77.webp" alt="Motorola G77">
-                <h3 class="card-titulo">Motorola G77</h3>
-                <p class="card-precio">$700.000</p>
-                <button type="button" class="btn-agregar">Añadir al carrito</button>
-            </article>
-
-        </section>
+        <!-- El componente dinámico js/productos.js inyecta las cards aquí -->
+        <section class="productos-grid"></section>
     </main>
 
+    <!-- Footer estructurado con Quiénes Somos, Redes y Sucursal -->
     <footer>
-        <p>&copy; 2026 Millenium - Categoría Celulares</p>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>¿Quiénes Somos?</h3>
+                <p><strong>Millenium</strong> es una empresa familiar dedicada a equipar tu hogar con lo último en tecnología, electrodomésticos y herramientas. Nos caracteriza el trato cercano y el compromiso con cada familia de la región.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul class="nav-recuadros">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="./celulares.html">Celulares</a></li>
+                    <li><a href="./tv-audio.html">TV y Audio</a></li>
+                    <li><a href="./electrodomesticos.html">Electrodomésticos</a></li>
+                    <li><a href="./herramientas.html">Herramientas</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contacto y Sucursal</h4>
+                <p>📍 Corrientes 306, X5854 Almafuerte, Córdoba</p>
+                <p>📧 contacto@millenium.com</p>
+                <p>📞 +54 3571 123456</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Seguinos</h4>
+                <p>Sumate a nuestras redes para enterarte de todas las ofertas:</p>
+                <ul class="redes-sociales">
+                    <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+                    <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="https://whatsapp.com" target="_blank" rel="noopener">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Millenium Electrodomésticos - Empresa Familiar. Todos los derechos reservados.</p>
+        </div>
+        <div id="toast-notificacion" class="toast-oculto">
+            <p id="toast-mensaje"></p>
+        </div>
     </footer>
 
+    <script src="../js/auth.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/productos.js"></script>    
 </body>
-
 </html>
